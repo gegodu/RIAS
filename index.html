@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Demostración Facebook Login con AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">RIAS</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" ng-show= "facebook.login">
+                    <li>
+                        <img ng-src="{{fb_image}}" style="width:45px; height:45px; margin-top: 4px;">
+                        
+                    </li>
+                    <li>
+                        <a href="#">{{facebook.username}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Taller de Aplicaciones de Internet Ricas</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Conectar AngularJS con Facebook</h2>
+                <p>A continuación conectaremos nuestra aplicación a Facebook</p>
+                <!--<p>
+                    <a class="btn btn-default btn-lg" href="#">Call to Action &raquo;</a>
+                </p>-->
+
+<!--<h1>Facebook login</h1>-->
+    <!--<input type="button" class="btn btn-facebook" ng-click="onFBLogin()" value="Login"/>-->
+    <div ng-hide= "facebook.login">
+    <a ng-click="onFBLogin()" value="Login" type="button" class="btn btn-social btn-facebook">
+    <span class="fa fa-facebook"></span> Login con facebook
+  </a>
+   </div>
+    <!--<input type="button" ng-click="onFBLogOff()" value="Logoff"/>-->
+    
+    <div ng-show= "facebook.login">
+    <h2>Bienvenido: <b>{{facebook.username}}</b></h2>
+    <h4>Tu correo registrado en Facebook es: <b>{{facebook.email}}</b></h4>
+    <!--<img ng-src="{{fb_image}}" style="width:250px; height:250px">-->
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+
+            </div>
+            <div class="col-sm-4">
+                <h2>Profesor</h2>
+                <address>
+                    <strong>Andres Pastorini</strong>
+                    <br>Docente de la materia
+                    <br>Taller de Aplicaciones de Internet Ricas 
+                    <br>
+                </address>
+                
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="img/ale.jpg" alt="">
+                <h2 align="center">Alejandro Mancebo</h2>
+                <p align="center"><i class="fa fa-google-plus fa-4" aria-hidden="true"></i> antarebo@gmail.com</p>             
+                <p align="center"><i class="fa fa-twitter fa-4" aria-hidden="true"></i> el_ale</p>
+                <p align="center"><i class="fa fa-github fa-4" aria-hidden="true"></i> antarebo</p>                
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="img/martin1.jpg" alt="">
+                <h2 align="center">Martín Castro</h2>
+                <p align="center"><i class="fa fa-google-plus fa-4" aria-hidden="true"></i>  mcastroescoto@gmail.com</p>             
+                <p align="center"><i class="fa fa-twitter fa-4" aria-hidden="true"></i> martin_c_e</p>
+                <p align="center"><i class="fa fa-github fa-4" aria-hidden="true"></i> mcastroescoto</p> 
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="img/gera1.jpg" alt="">
+                <h2 align="center">Gerardo González</h2>
+                <p align="center"><i class="fa fa-google-plus fa-4" aria-hidden="true"></i> gegodu@gmail.com</p>             
+                <p align="center"><i class="fa fa-twitter fa-4" aria-hidden="true"></i> gerar017</p>
+                <p align="center"><i class="fa fa-github fa-4" aria-hidden="true"></i> gegodu</p> 
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Copyright &copy; RICAS</p>
+                </div>
+                <div class="col-lg-6">
+                    <p align="right"><i class="fa fa-github fa-4" aria-hidden="true"></i> https://github.com/martincastro89/Rias</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
